@@ -12,10 +12,10 @@ function App() {
     cart: [],
     products: []
   });
-  console.log(state);
+  //console.log(state);
   const fetchProducts = async () => {
     const { data } = await axios.get('https://dummyjson.com/products');
-    //console.log(data);
+    console.log(data);
     dispatch({
       type: "ADD_PRODUCTS",
       payload: data.products
@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <>
+    
 
       <div style={{ display: "flex" }}>
         <Products state={state} dispatch={dispatch} />
@@ -39,7 +39,7 @@ function App() {
       </div>
 
 
-    </>
+    
 
   );
 }
