@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState ,useEffect} from 'react';
+import CartElement from '../CartElement/CartElement';
+import "./Cart.css";
 function Cart({state,dispatch}) {
     const {cart}=state;
     const [total, setTotal] = useState(0);
@@ -21,23 +23,14 @@ function Cart({state,dispatch}) {
     }, [cart])
     
   return (
+    
 
-    <div style={{
-    }}>
-    <h1>Total Amount: ${total}</h1>
+    <div className='cart'>
+    <p>Total Amount: ${total}</p>
     
     {cart.length>0?(
         cart.map((cart_item)=>{
-             return <div style={{
-                    border: "2px solid black"
-                }} key={cart_item.id}>
-                <img src={cart_item.thumbnail}  alt="" width={"80%"} height={"150px"}/>
-                <p>{cart_item.title}</p>
-                <p>${cart_item.price}</p>
-                <button onClick={()=>changeCartQty(cart_item.id,cart_item.qty-1)}>-</button>
-                <p>{cart_item.qty}</p>
-                <button onClick={()=>changeCartQty(cart_item.id,cart_item.qty+1)}>+</button>
-        </div>
+      return <CartElement cart_item={cart_item} changeCartQty={changeCartQty}/>
         })
         
         ):<></>

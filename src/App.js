@@ -3,8 +3,9 @@ import './App.css';
 import axios from "axios";
 import { useReducer, useState, useEffect } from "react";
 import { cartReducer } from './reducers/cartReducer';
-import Cart from './components/Cart';
-import Products from './components/Products';
+import Cart from './components/Cart/Cart';
+import Products from './components/Products/Products';
+import Container from '@mui/material/Container';
 
 function App() {
 
@@ -31,15 +32,17 @@ function App() {
 
 
   return (
-    
 
-      <div style={{ display: "flex" }}>
+
+    <div className='app'>
+      {/* <Container> */}
         <Products state={state} dispatch={dispatch} />
         <Cart state={state} dispatch={dispatch} />
-      </div>
+      {/* </Container> */}
+    </div>
 
 
-    
+
 
   );
 }
