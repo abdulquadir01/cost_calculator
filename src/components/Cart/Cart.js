@@ -26,7 +26,7 @@ function Cart({state,dispatch}) {
     
 
     <div className='cart'>
-    <p>Total Amount: ${total}</p>
+    <p>Your Final Amount: ${total}</p>
     
     {cart.length>0?(
         cart.map((cart_item)=>{
